@@ -22,12 +22,10 @@ def comissao_por_vendedor(vendas):
         nome = venda["vendedor"]
         totais[nome] = totais.get(nome, 0) + calcular_comissao(venda["valor"])
 
-    # Arredonda só no final para não acumular erro de arredondamento
     return {nome: round(total, 2) for nome, total in totais.items()}
 
 
 def formatar_reais(valor):
-    # Formato brasileiro: 1.234,56
     texto = f"{valor:,.2f}"
     return "R$ " + texto.replace(",", "X").replace(".", ",").replace("X", ".")
 
